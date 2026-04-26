@@ -4,179 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PickMe VPN | Secure & Kawaii</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg-color: #000000;
-            --primary-pink: #FFB6C1;
-            --dark-pink: #FF69B4;
-            --text-white: #FFFFFF;
+            --bg-color: #000;
+            --pink: #FFB6C1;
+            --dark: #FF69B4;
+            --white: #fff;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-white);
-            font-family: 'VT323', monospace;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
+            font-family: 'VT323', monospace;
+            background: var(--bg-color);
+            color: var(--white);
+            text-align: center;
         }
 
         header {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .logo {
-            image-rendering: pixelated;
-            max-width: 300px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px var(--primary-pink));
+            padding: 60px 20px;
         }
 
         h1 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 1.5rem;
-            color: var(--primary-pink);
-            text-shadow: 3px 3px 0px var(--dark-pink);
-            margin-bottom: 40px;
+            font-family: 'Press Start 2P';
+            color: var(--pink);
+            text-shadow: 3px 3px var(--dark);
         }
 
-        /* Секция тарифов */
-        .pricing {
+        .btn {
+            background: var(--pink);
+            color: black;
+            padding: 15px 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-family: 'Press Start 2P';
+            font-size: 10px;
+            box-shadow: 4px 4px var(--dark);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--dark);
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .cards {
             display: flex;
-            gap: 30px;
             flex-wrap: wrap;
             justify-content: center;
-            padding: 20px;
+            gap: 20px;
         }
 
         .card {
-            border: 4px solid var(--primary-pink);
-            background: rgba(255, 182, 193, 0.05);
-            padding: 30px;
+            border: 3px solid var(--pink);
+            padding: 20px;
             width: 250px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 20px var(--dark-pink);
-            background: rgba(255, 182, 193, 0.1);
-        }
-
-        .card h2 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
         }
 
         .price {
-            font-size: 2.5rem;
-            color: var(--primary-pink);
-            margin-bottom: 20px;
-        }
-
-        .features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-            text-align: left;
-            font-size: 1.2rem;
-        }
-
-        .features li::before {
-            content: "> ";
-            color: var(--primary-pink);
-        }
-
-        /* Кнопка покупки */
-        .btn-buy {
-            display: inline-block;
-            background: var(--primary-pink);
-            color: #000;
-            padding: 15px 25px;
-            text-decoration: none;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 4px 4px 0px var(--dark-pink);
-        }
-
-        .btn-buy:active {
-            box-shadow: 0px 0px 0px;
-            transform: translate(4px, 4px);
+            font-size: 30px;
+            color: var(--pink);
         }
 
         footer {
-            margin-top: 100px;
             padding: 40px;
-            font-size: 0.8rem;
-            opacity: 0.6;
+            opacity: 0.5;
         }
-
-        /* Анимация плавающего котика */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        .floating { animation: float 4s ease-in-out infinite; }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <div class="floating">
-            <img src="image_793d13.png" alt="PickMe Logo" class="logo">
-        </div>
-        <h1>PICKME VPN</h1>
-        <p style="font-size: 1.5rem;">Приватность в стиле Pixel Art.</p>
-    </header>
+<header>
+    <h1>PICKME VPN</h1>
+    <p>Приватность высшего качества</p>
 
-    <section class="pricing">
+    <button class="btn" onclick="download()">СКАЧАТЬ VPN</button>
+    <button class="btn" onclick="scrollToPlans()">ТАРИФЫ</button>
+</header>
+
+<section class="section">
+    <h2>Почему мы?</h2>
+    <p>⚡ Быстро • 🔒 Безопасно • 🌸 Красиво</p>
+
+    <button class="btn" onclick="download()">БЫСТРЫЙ СТАРТ</button>
+</section>
+
+<section class="section" id="plans">
+    <h2>ТАРИФЫ</h2>
+
+    <div class="cards">
+
         <div class="card">
-            <h2>START</h2>
+            <h3>TRIAL</h3>
+            <div class="price">FREE</div>
+            <p>24 часа</p>
+            <button class="btn" onclick="download()">ПРОБНЫЙ</button>
+        </div>
+
+        <div class="card">
+            <h3>START</h3>
             <div class="price">$3</div>
-            <ul class="features">
-                <li>1 Месяц</li>
-                <li>3 Устройства</li>
-                <li>No Logs</li>
-            </ul>
-            <a href="#" class="btn-buy">КУПИТЬ</a>
-        </div>
-
-        <div class="card" style="border-color: #fff;">
-            <h2 style="color: #fff;">PRO</h2>
-            <div class="price" style="color: #fff;">$15</div>
-            <ul class="features">
-                <li>6 Месяцев</li>
-                <li>10 Устройств</li>
-                <li>Gaming Mode</li>
-            </ul>
-            <a href="#" class="btn-buy" style="background: #fff; box-shadow: 4px 4px 0px #ccc;">ВЫБРАТЬ</a>
+            <p>1 месяц</p>
+            <button class="btn" onclick="buy()">КУПИТЬ</button>
         </div>
 
         <div class="card">
-            <h2>ULTRA</h2>
-            <div class="price">$25</div>
-            <ul class="features">
-                <li>1 Год</li>
-                <li>∞ Устройств</li>
-                <li>VIP Сервера</li>
-            </ul>
-            <a href="#" class="btn-buy">КУПИТЬ</a>
+            <h3>PRO</h3>
+            <div class="price">$10</div>
+            <p>6 месяцев</p>
+            <button class="btn" onclick="buy()">КУПИТЬ</button>
         </div>
-    </section>
 
-    <footer>
-        © 2026 PICKME VPN. STAY SAFE, STAY PINK.
-    </footer>
+        <div class="card">
+            <h3>ULTRA</h3>
+            <div class="price">$20</div>
+            <p>1 год</p>
+            <button class="btn" onclick="buy()">КУПИТЬ</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2>Как это работает?</h2>
+    <p>1. Нажал скачать</p>
+    <p>2. Установил</p>
+    <p>3. Готово 🚀</p>
+
+    <button class="btn" onclick="download()">НАЧАТЬ</button>
+</section>
+
+<section class="section">
+    <h2>FAQ</h2>
+    <p><b>Это бесплатно?</b><br>Есть пробный период</p>
+    <p><b>Это безопасно?</b><br>Да</p>
+</section>
+
+<footer>
+    © 2026 PICKME VPN
+</footer>
+
+<script>
+function download() {
+    alert("Скачивание началось... (заглушка)");
+
+    // можно заменить на реальный файл:
+    // window.location.href = "vpn-config.conf";
+}
+
+function buy() {
+    alert("Оплата пока не подключена 😅");
+}
+
+function scrollToPlans() {
+    document.getElementById("plans").scrollIntoView({ behavior: "smooth" });
+}
+</script>
 
 </body>
 </html>

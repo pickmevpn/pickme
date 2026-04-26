@@ -44,6 +44,7 @@
             font-size: 10px;
             box-shadow: 4px 4px var(--dark);
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .btn:hover {
@@ -76,6 +77,19 @@
             padding: 40px;
             opacity: 0.5;
         }
+
+        /* уведомление */
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--pink);
+            color: black;
+            padding: 10px 20px;
+            display: none;
+            box-shadow: 4px 4px var(--dark);
+        }
     </style>
 </head>
 
@@ -83,9 +97,10 @@
 
 <header>
     <h1>PICKME VPN</h1>
-    <p>Приватность высшего качества</p>
+    <p>Приватность в kawaii стиле</p>
 
-    <button class="btn" onclick="download()">СКАЧАТЬ VPN</button>
+    <!-- главная кнопка -->
+    <a href="PickMe-VPN.rar" download class="btn" onclick="showToast()">СКАЧАТЬ VPN</a>
     <button class="btn" onclick="scrollToPlans()">ТАРИФЫ</button>
 </header>
 
@@ -93,7 +108,7 @@
     <h2>Почему мы?</h2>
     <p>⚡ Быстро • 🔒 Безопасно • 🌸 Красиво</p>
 
-    <button class="btn" onclick="download()">БЫСТРЫЙ СТАРТ</button>
+    <a href="PickMe VPN.rar" download class="btn" onclick="showToast()">БЫСТРЫЙ СТАРТ</a>
 </section>
 
 <section class="section" id="plans">
@@ -105,28 +120,28 @@
             <h3>TRIAL</h3>
             <div class="price">FREE</div>
             <p>24 часа</p>
-            <button class="btn" onclick="download()">ПРОБНЫЙ</button>
+            <a href="PickMe VPN.rar" download class="btn" onclick="showToast()">СКАЧАТЬ</a>
         </div>
 
         <div class="card">
             <h3>START</h3>
             <div class="price">$3</div>
             <p>1 месяц</p>
-            <button class="btn" onclick="buy()">КУПИТЬ</button>
+            <button class="btn" onclick="fakeBuy()">КУПИТЬ</button>
         </div>
 
         <div class="card">
             <h3>PRO</h3>
             <div class="price">$10</div>
             <p>6 месяцев</p>
-            <button class="btn" onclick="buy()">КУПИТЬ</button>
+            <button class="btn" onclick="fakeBuy()">КУПИТЬ</button>
         </div>
 
         <div class="card">
             <h3>ULTRA</h3>
             <div class="price">$20</div>
             <p>1 год</p>
-            <button class="btn" onclick="buy()">КУПИТЬ</button>
+            <button class="btn" onclick="fakeBuy()">КУПИТЬ</button>
         </div>
 
     </div>
@@ -138,33 +153,36 @@
     <p>2. Установил</p>
     <p>3. Готово 🚀</p>
 
-    <button class="btn" onclick="download()">НАЧАТЬ</button>
+    <a href="PickMe VPN.rar" download class="btn" onclick="showToast()">НАЧАТЬ</a>
 </section>
 
 <section class="section">
     <h2>FAQ</h2>
     <p><b>Это бесплатно?</b><br>Есть пробный период</p>
-    <p><b>Это безопасно?</b><br>Да</p>
+    <p><b>Это безопасно?</b><br>Да (ну типа 😄)</p>
 </section>
 
 <footer>
     © 2026 PICKME VPN
 </footer>
 
-<script>
-function download() {
-    alert("Скачивание началось... (заглушка)");
+<div id="toast">⬇️ Скачивание началось...</div>
 
-    // можно заменить на реальный файл:
-    // window.location.href = "vpn-config.conf";
+<script>
+function scrollToPlans() {
+    document.getElementById("plans").scrollIntoView({ behavior: "smooth" });
 }
 
-function buy() {
+function fakeBuy() {
     alert("Оплата пока не подключена 😅");
 }
 
-function scrollToPlans() {
-    document.getElementById("plans").scrollIntoView({ behavior: "smooth" });
+function showToast() {
+    const toast = document.getElementById("toast");
+    toast.style.display = "block";
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 2000);
 }
 </script>
 
